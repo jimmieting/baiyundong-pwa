@@ -1,0 +1,33 @@
+/**
+ * 通用页面样式
+ */
+
+.page-header {
+  text-align: center;
+  padding: 24px 0 16px;
+}
+
+.page-header .text-title {
+  margin-bottom: 12px;
+}
+
+.back-btn {
+  display: inline-block;
+  background: none;
+  border: none;
+  color: var(--ash);
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 4px 0;
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+
+.back-btn:hover {
+  color: var(--ink);
+}
+
+.placeholder-section {
+  padding: 40px 0;
+}

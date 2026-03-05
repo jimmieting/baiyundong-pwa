@@ -1,0 +1,161 @@
+/**
+ * 攀登页 · 水墨意境
+ */
+
+.climb-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: calc(var(--sat) + 24px);
+  padding-bottom: calc(var(--sab) + 100px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ========== 水墨山形装饰 ========== */
+.ink-mountain {
+  position: absolute;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ink-mountain svg {
+  width: 100%;
+  height: 120px;
+}
+
+/* ========== 品牌标题 ========== */
+.climb-header {
+  text-align: center;
+  margin-bottom: 48px;
+  z-index: 1;
+}
+
+.brand-title {
+  font-size: 1.4rem;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+/* ========== 计时核心 ========== */
+.timer-section {
+  text-align: center;
+  margin-bottom: 40px;
+  z-index: 1;
+}
+
+.timer-display {
+  position: relative;
+  display: inline-block;
+}
+
+.timer-text {
+  font-size: 4.5rem;
+  font-weight: 900;
+  color: var(--ink);
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.timer-hint {
+  margin-top: 12px;
+  letter-spacing: 0.1em;
+}
+
+/* ========== 地理状态条 ========== */
+.geo-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--paper-warm);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  margin-bottom: 32px;
+  z-index: 1;
+  transition: border-color 0.3s;
+}
+
+.geo-bar.ready {
+  border-color: var(--seal);
+}
+
+.geo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ash);
+  transition: background 0.3s;
+}
+
+.geo-bar.ready .geo-dot {
+  background: var(--seal);
+  box-shadow: 0 0 6px rgba(192, 57, 43, 0.4);
+}
+
+/* ========== 按钮区 ========== */
+.climb-page .btn-primary {
+  width: calc(100% - 48px);
+  max-width: 320px;
+  z-index: 1;
+}
+
+/* ========== 数据统计 ========== */
+.stats-section {
+  margin-top: 48px;
+  width: calc(100% - 48px);
+  max-width: 320px;
+  z-index: 1;
+}
+
+.stat-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper-warm);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.stat-label {
+  font-size: 0.75rem;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 36px;
+  background: var(--line);
+}
+
+/* ========== 底部留言 ========== */
+.climb-footer {
+  position: fixed;
+  bottom: calc(56px + var(--sab) + 12px);
+  left: 0;
+  right: 0;
+  text-align: center;
+  letter-spacing: 0.15em;
+  opacity: 0.4;
+  z-index: 1;
+}

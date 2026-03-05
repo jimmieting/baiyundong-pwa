@@ -1,0 +1,224 @@
+/**
+ * 白云洞登山局 · 水墨意境
+ * 全局样式 + CSS 变量
+ */
+
+/* ========== 色盘 ========== */
+:root {
+  /* 水墨五色 */
+  --ink: #2C2C2C;           /* 墨黑 - 主文字 */
+  --ink-light: #5A5A5A;     /* 淡墨 - 次要文字 */
+  --ash: #A0937D;           /* 烟灰 - 辅助文字 */
+  --paper: #F5F0E8;         /* 宣纸 - 主背景 */
+  --paper-warm: #EDE5D8;    /* 旧纸 - 卡片背景 */
+  --seal: #C0392B;          /* 朱红 - 印章/强调 */
+  --seal-light: rgba(192, 57, 43, 0.1); /* 朱红淡底 */
+  --line: #E8E0D0;          /* 淡墨线 - 分割线 */
+
+  /* 安全区 */
+  --sat: env(safe-area-inset-top, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+}
+
+/* ========== 重置 ========== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", Georgia, serif;
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+
+/* ========== 字体层级 ========== */
+
+/* 成绩大字 - 如碑刻 */
+.text-hero {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--ink);
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+}
+
+/* 页面标题 - 如匾额 */
+.text-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.15em;
+}
+
+/* 正文 */
+.text-body {
+  font-size: 0.9rem;
+  color: var(--ink-light);
+  line-height: 1.6;
+}
+
+/* 辅助文字 */
+.text-caption {
+  font-size: 0.8rem;
+  color: var(--ash);
+  letter-spacing: 0.05em;
+}
+
+/* 朱红标签 */
+.text-seal {
+  font-size: 0.85rem;
+  color: var(--seal);
+  font-weight: 700;
+}
+
+/* ========== 卡片 ========== */
+.card {
+  background: var(--paper-warm);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+/* ========== 按钮 ========== */
+.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 16px;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-primary:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-primary.seal {
+  background: var(--seal);
+}
+
+/* ========== 分割线（水墨画意） ========== */
+.divider {
+  width: 48px;
+  height: 2px;
+  background: var(--seal);
+  margin: 0 auto;
+  border-radius: 1px;
+}
+
+/* ========== 页面容器 ========== */
+.page {
+  min-height: 100vh;
+  padding: 0 24px;
+  padding-top: calc(var(--sat) + 16px);
+  padding-bottom: calc(var(--sab) + 80px);
+}
+
+/* ========== 底部导航 ========== */
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: calc(56px + var(--sab));
+  padding-bottom: var(--sab);
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+  z-index: 100;
+}
+
+.tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 16px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.tab-item .tab-label {
+  font-size: 0.7rem;
+  color: var(--ash);
+  letter-spacing: 0.1em;
+}
+
+.tab-item.active .tab-label {
+  color: var(--seal);
+  font-weight: 700;
+}
+
+.tab-item .tab-icon {
+  font-size: 1.3rem;
+  color: var(--ash);
+  transition: color 0.2s;
+}
+
+.tab-item.active .tab-icon {
+  color: var(--seal);
+}
+
+/* ========== 动画 ========== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* ========== 山形装饰 ========== */
+.mountain-decoration {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+  opacity: 0.12;
+}
+
+.mountain-decoration svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ========== 滚动条隐藏 ========== */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ========== 无衬线回退（数字用等宽） ========== */
+.mono {
+  font-family: "SF Mono", "Fira Code", "Menlo", monospace;
+  font-variant-numeric: tabular-nums;
+}
